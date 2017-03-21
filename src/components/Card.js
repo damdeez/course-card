@@ -12,15 +12,17 @@ export default class Card extends React.Component {
         classData.map((data, index) => {
             classMarkup.push(
                 <main key={index} className="card">
-                    <header className="class-heading-title">
+                    <header className="class-heading">
                         <img src="" />
                     </header>
-                    <h2>{data.name}</h2>
-                    <h3>{data.code}</h3>
-                    <p>{data.description}</p>
-                    <footer className="card-nav">
-                        
-                    </footer>
+                    <div className="inner-card">
+                        <h2>{data.name}</h2>
+                        <h3>{data.code}</h3>
+                        <p>{data.description}</p>
+                        <footer className="card-nav">
+
+                        </footer>
+                    </div>
                 </main>
             );
         });
@@ -29,7 +31,7 @@ export default class Card extends React.Component {
     }
     render(props) {
         return (
-            <div>{this.renderClasses()}</div>
+            <div className="card-container">{this.renderClasses()}</div>
         )
     }
 }

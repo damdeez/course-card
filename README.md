@@ -3,7 +3,7 @@
 Course Card homework assignment
 
 ## Credits
-Most of the tools are from the https://github.com/AndrewTHuang/simple-react-webpack.git repo.
+Used https://github.com/AndrewTHuang/simple-react-webpack.git as a starting point for the mini-app.
 
 ## Tools
 * React
@@ -11,6 +11,7 @@ Most of the tools are from the https://github.com/AndrewTHuang/simple-react-webp
   * including a small Express dev server
 * Babel (to transpile ES6)
 * SASS
+* Axios (https://github.com/mzabriskie/axios)
 * Testing
   * Karma
   * Mocha + Chai
