@@ -11,7 +11,7 @@ export default class App extends React.Component {
     }
     componentWillMount(props) {
         const accessToken = '9be624b4d5206a178fc56921d5bf2c2a';
-        axios.get('http://canvas-api.herokuapp.com/api/v1/courses?access_token=' + accessToken)
+        axios.get('http://canvas-api.herokuapp.com/api/v1/courses?access_token=' + accessToken + '&per_page=8')
           .then((response) => {
             //console.info('response', response.data);
             const jsonData = response.data;

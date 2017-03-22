@@ -35,12 +35,12 @@ $text-color: #555555;
             max-width: 250px;
             border: 1px solid #dfdfdf;
             min-height: 250px;
-            margin: 0 15px;
+            margin: 0 15px 15px;
             vertical-align: top;
             transition: all 0.2s ease-in-out;
 
             // SASS loop to generate different colors for each .card
-            $colors: #db4437, #f4b142, #f4b400, #0f9d58, #4285f4, #333333;
+            $colors: #db4437, #f4b142, #0f9d58, #aaaaaa, #4285f4, #333333;
             @for $i from 1 through length($colors) {
                 &:nth-child(#{length($colors)}n+#{$i}) {
                     border-bottom: 3px solid nth($colors, $i);
@@ -65,7 +65,7 @@ $text-color: #555555;
                     line-height: 25px;
                 }
                 h2 {
-                    font-size: 16px;
+                    font-size: 15px;
                     color: #4285f4;
                 }
                 h3,
