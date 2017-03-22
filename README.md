@@ -1,6 +1,6 @@
 # course-card-homework
 
-Course Card homework assignment
+Course Card homework assignment. Live demo can be seen here: http://demo.damirhara.com/courses
 
 ## Credits
 Used https://github.com/AndrewTHuang/simple-react-webpack.git as a starting point for the mini-app.

@@ -6,28 +6,42 @@ export default class Card extends React.Component {
         super(props);
     }
     renderClasses(props) {
-        const classData = this.props.data.classes;
-        const classMarkup = [];
+        if (this.props.data.classes) {
+            const classData = this.props.data.classes;
+            const classMarkup = [];
 
-        classData.map((data, index) => {
-            classMarkup.push(
-                <main key={index} className="card">
-                    <header className="class-heading">
-                        <img src="" />
-                    </header>
-                    <div className="inner-card">
-                        <h2>{data.name}</h2>
-                        <h3>{data.code}</h3>
-                        <p>{data.description}</p>
-                        <footer className="card-nav">
+            classData.map((data, index) => {
+                classMarkup.push(
+                    <main key={index} className="card">
+                        <header className="class-heading">
+                            <img src="" />
+                        </header>
+                        <div className="inner-card">
+                            <h2>{data.name}</h2>
+                            <h3>{data.code}</h3>
+                            <p className="card-description" onClick={this.expandCardDescription}>
+                                {data.description}
+                                <span className="description-overlay" />
+                            </p>
+                            <nav className="card-nav">
 
-                        </footer>
-                    </div>
-                </main>
-            );
-        });
+                            </nav>
+                        </div>
+                    </main>
+                );
+            });
 
-        return classMarkup;
+            return classMarkup;
+        } else {
+            <div className="loading">...Loading</div>
+        }
+    }
+    expandCardDescription(e) {
+        if (e.target.classList.contains('expanded')) {
+            e.target.classList.remove('expanded');
+        } else {
+            e.target.classList.add('expanded');
+        }
     }
     render(props) {
         return (
