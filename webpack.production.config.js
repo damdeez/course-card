@@ -3,16 +3,22 @@ var path = require('path');
 
 module.exports = {
     entry: [
-        'webpack-hot-middleware/client', './src/index.js'
+        './src/index.js'
     ],
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: 'bundle.js',
+        filename: 'bundle.min.js',
         publicPath: '/'
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin()
+        new webpack.NoErrorsPlugin(),
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify('production')
+            }
+        }),
+        new webpack.optimize.UglifyJsPlugin()
     ],
     module: {
         loaders: [
@@ -32,10 +38,5 @@ module.exports = {
                 include: path.join(__dirname, 'src/images')
             }
         ]
-    },
-    externals: {
-        'cheerio': 'window',
-        'react/lib/ExecutionEnvironment': true,
-        'react/lib/ReactContext': true
     }
 };

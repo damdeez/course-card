@@ -5,6 +5,11 @@ export default class Card extends React.Component {
     constructor(props) {
         super(props);
     }
+    imagesRender(index) {
+        const path = '//demo.damirhara.com/courses/images/';
+
+        return `${path}uofu-${index}.jpg`;
+    }
     renderClasses(props) {
         if (this.props.data.classes) {
             const classData = this.props.data.classes;
@@ -12,9 +17,9 @@ export default class Card extends React.Component {
 
             classData.map((data, index) => {
                 classMarkup.push(
-                    <main key={index} className="card">
+                    <li key={index} className="card">
                         <header className="class-heading">
-                            <img src="" />
+                            <img src={this.imagesRender(index)} alt="Class Image"/>
                         </header>
                         <div className="inner-card">
                             <h2>{data.name}</h2>
@@ -27,7 +32,7 @@ export default class Card extends React.Component {
 
                             </nav>
                         </div>
-                    </main>
+                    </li>
                 );
             });
 
