@@ -3,7 +3,7 @@
 Course Card homework assignment. Live demo can be seen here: http://demo.damirhara.com/courses
 
 ## Credits
-Used https://github.com/AndrewTHuang/simple-react-webpack.git as a starting point for the mini-app.
+Used https://github.com/AndrewTHuang/simple-react-webpack.git as a starting boilerplate for the mini-app.
 
 ## Tools
 * React
@@ -12,7 +12,8 @@ Used https://github.com/AndrewTHuang/simple-react-webpack.git as a starting poin
 * Babel (to transpile ES6)
 * SASS
 * Axios (https://github.com/mzabriskie/axios)
-* Testing
+* React Icons (http://gorangajic.github.io/react-icons/)
+* Testing (Currently not used)
   * Karma
   * Mocha + Chai
   * [Enzyme](http://airbnb.io/enzyme/)
