@@ -29,5 +29,5 @@ Used https://github.com/AndrewTHuang/simple-react-webpack.git as a starting poin
 
 There you go! You're up and running at ```localhost:3000```
 
-### Production
-To build a minified `bundle.min.js` production-ready file, simply run `> npm run deploy`. This will also convert React to the production version. 😃
+## Production
+To build a minified `bundle.min.js` production-ready file, simply run `> npm run deploy` and it will build it into `/dist`. This will also convert React to the production version. 😃

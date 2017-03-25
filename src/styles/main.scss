@@ -2,7 +2,7 @@
 
 $font-stack: 'Roboto', Helvetica Neue, Helvetica, Verdana, sans-serif;
 $white: #ffffff;
-$text-color: #555555;
+$text-color: #8f98a7;
 
 //CSS Reset
 * {
@@ -12,7 +12,14 @@ $text-color: #555555;
     margin: 0;
     outline: 0;
     padding: 0;
-    vertical-align: baseline;
+}
+
+svg {
+    position: relative;
+    height: 23px;
+    width: 23px;
+    top: 8%;
+    right: -42%;
 }
 
 .app-container {
@@ -26,6 +33,9 @@ $text-color: #555555;
     .card-container {
         margin: 50px 35px;
         text-align: center;
+        @media only screen and (max-width: 768px) {
+            margin: 50px 15px;
+        }
         .loading {
             color: $text-color;
             font-size: 20px;
@@ -34,18 +44,18 @@ $text-color: #555555;
             border: 1px solid #dfdfdf;
             display: inline-block;
             margin: 0 15px 30px;
-            max-width: 250px;
+            max-width: 240px;
             min-height: 250px;
-            min-width: 200px;
+            min-width: 220px;
             transition: all 0.2s ease-in-out;
             vertical-align: top;
             width: 20%;
 
             // SASS loop to generate different colors for each .card
-            $colors: #db4437, #f4b142, #0f9d58, #aaaaaa, #4285f4, #333333, #5842f4, #b1cdfa;
+            $colors: #db4437, #f4b142, #0f9d58, #aaaaaa, #4285f4, #333333, #6854f5, #b1cdfa;
             @for $i from 1 through length($colors) {
                 &:nth-child(#{length($colors)}n+#{$i}) {
-                    border-bottom: 3px solid nth($colors, $i);
+                    border-bottom: 4px solid nth($colors, $i);
                     .class-heading {
                         background-color: nth($colors, $i);
                     }
@@ -57,33 +67,40 @@ $text-color: #555555;
                 cursor: pointer;
             }
             .class-heading {
-                height: 100px;
+                height: 120px;
                 overflow: hidden;
                 img {
                     background-size: cover;
-                    margin-top: -15px;
                     opacity: 0.2;
                     width: 100%;
+                    position: relative;
+                    top: -25px;
+                }
+                svg {
+                    fill: $white;
+                    z-index: 99;
                 }
             }
             .inner-card {
                 padding: 10px;
-                h2,
-                h3 {
-                    font-weight: 500;
-                    line-height: 25px;
-                }
+                text-align: left;
                 h2 {
                     color: #4285f4;
                     font-size: 15px;
+                    font-weight: 500;
                     line-height: 20px;
+                }
+                h3 {
+                    font-size: 13px;
+                    //font-weight: 400;
+                    margin: 5px 0;
                 }
                 h3,
                 p {
                     color: $text-color;
                 }
-                h3 {
-                    font-size: 14px;
+                svg {
+                    fill: $text-color;
                 }
                 p.card-description {
                     font-size: 12px;
@@ -93,14 +110,13 @@ $text-color: #555555;
                     transition: height 1s ease-in-out;
                     .description-overlay {
                         background-image: linear-gradient(to bottom, transparent, $white);
-                        bottom: 0;
+                        bottom: -2px;
                         display: block;
-                        height: 10px;
+                        height: 5px;
                         left: 0;
                         margin: 0;
-                        padding: 10px 0;
+                        padding: 10px 0 0;
                         position: absolute;
-                        top: 20px;
                         width: 100%;
                     }
                     &.expanded {
@@ -109,6 +125,21 @@ $text-color: #555555;
                 }
                 nav.card-nav {
                     height: 50px;
+                    ul {
+                        text-align: center;
+                        padding-top: 20px;
+                        li {
+                            list-style: none;
+                            display: inline;
+                            margin-right: 30px;
+                            svg {
+                                position: static;
+                            }
+                            &:last-child {
+                                margin-right: 0;
+                            }
+                        }
+                    }
                 }
             }
         }
