@@ -16,7 +16,7 @@ export default class Card extends React.Component {
                 classMarkup.push(
                     <li key={index} className="card">
                         <header className="class-heading">
-                            <span className="svg"><MdAddBox /></span>
+                            <span className="svg"><MdCreate /></span>
                             <img src={`${path}uofu-${index}.jpg`} alt="Class Image"/>
                         </header>
                         <div className="inner-card">
@@ -47,31 +47,31 @@ export default class Card extends React.Component {
         }
     }
     expandCardDescription(e, index) {
+        const $cardDescription = document.querySelectorAll('.card-description')[index];
+        const $overlay = document.querySelectorAll('.description-overlay')[index];
         const $downArrow = document.querySelectorAll('.arrow-down')[index];
         const $upArrow = document.querySelectorAll('.arrow-up')[index];
-        const $overlay = document.querySelectorAll('.description-overlay')[index];
 
-        if (e.target.classList.contains('card-description')) {
-            if (e.target.classList.contains('expanded')) {
-                e.target.classList.remove('expanded');
+        if ($cardDescription || $overlay) {
+            if ($cardDescription.classList.contains('expanded')) {
+                $cardDescription.classList.remove('expanded');
                 $overlay.style.display = 'block';
                 $downArrow.style.display = 'inline';
                 $upArrow.style.display = 'none';
             } else {
-                e.target.classList.add('expanded');
+                $cardDescription.classList.add('expanded');
                 $overlay.style.display = 'none';
                 $downArrow.style.display = 'none';
                 $upArrow.style.display = 'inline';
             }
         } else if (e.target.parentElement.nodeName === 'SPAN' || e.target.nodeName === 'path') {
-            const $element = document.querySelectorAll('.card-description')[index];
-            if ($element.classList.contains('expanded')) {
-                $element.classList.remove('expanded');
+            if ($cardDescription.classList.contains('expanded')) {
+                $cardDescription.classList.remove('expanded');
                 $downArrow.style.display = 'inline';
                 $upArrow.style.display = 'none';
                 $overlay.style.display = 'block';
             } else {
-                $element.classList.add('expanded');
+                $cardDescription.classList.add('expanded');
                 $downArrow.style.display = 'none';
                 $upArrow.style.display = 'inline';
                 $overlay.style.display = 'none';

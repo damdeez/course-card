@@ -21,9 +21,9 @@ $smooth: all 0.2s ease-in-out;
     right: -42%;
     top: 8%;
     svg {
-        height: 23px;
+        height: 22px;
         transition: $smooth;
-        width: 23px;
+        width: 22px;
     }
     &:hover {
         svg {
@@ -34,7 +34,11 @@ $smooth: all 0.2s ease-in-out;
 
 .app-container {
     font-family: $font-stack;
-    margin-top: 10px;
+    margin: 10px auto 0;
+    max-width: 1400px;
+    @media only screen and (max-width: 1199px) {
+        max-width: 850px;
+    }
     h1 {
         font-size: 40px;
         font-weight: 300;
@@ -54,12 +58,10 @@ $smooth: all 0.2s ease-in-out;
             border: 1px solid #dfdfdf;
             display: inline-block;
             margin: 0 15px 30px;
-            max-width: 250px;
             min-height: 250px;
-            min-width: 230px;
             transition: $smooth;
             vertical-align: top;
-            width: 20%;
+            width: 250px;
             // SASS loop to generate different colors for each .card
             $colors: #db4437, #f4b142, #0f9d58, #aaaaaa, #4285f4, #333333, #6854f5, #b1cdfa;
             @for $i from 1 through length($colors) {
@@ -117,15 +119,14 @@ $smooth: all 0.2s ease-in-out;
                     overflow: hidden;
                     position: relative;
                     transition: height 1s ease-in-out;
-                    //width: 90%;
                     .description-overlay {
                         background-image: linear-gradient(to bottom, transparent, $white);
                         bottom: -2px;
                         display: block;
-                        height: 5px;
+                        height: 15px;
                         left: 0;
                         margin: 0;
-                        padding: 10px 0 0;
+                        padding: 15px 0 0;
                         position: absolute;
                         width: 100%;
                     }
