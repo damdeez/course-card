@@ -130,8 +130,14 @@ $smooth: all 0.2s ease-in-out;
                         position: absolute;
                         width: 100%;
                     }
+                    &:hover {
+                        color: darken($text-color, 10%);
+                    }
                     &.expanded {
                         height: auto;
+                        &:hover {
+                            color: $text-color;
+                        }
                     }
                 }
                 .arrow-down,
@@ -153,7 +159,7 @@ $smooth: all 0.2s ease-in-out;
                         li {
                             display: inline;
                             list-style: none;
-                            margin-right: 17%;
+                            margin-right: 18%;
                             &.svg {
                                 position: static;
                             }
