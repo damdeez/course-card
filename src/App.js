@@ -14,7 +14,6 @@ export default class App extends React.Component {
         const numberOfCourses = '8';
         axios.get(`http://canvas-api.herokuapp.com/api/v1/courses?access_token=${accessToken}&per_page=${numberOfCourses}`)
           .then((response) => {
-            //console.info('response', response.data);
             const jsonData = response.data;
             const coursesArray = []
 
