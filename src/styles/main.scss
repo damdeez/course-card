@@ -120,7 +120,7 @@ $smooth: all 0.2s ease-in-out;
                     position: relative;
                     transition: height 1s ease-in-out;
                     .description-overlay {
-                        background-image: linear-gradient(to bottom, transparent, $white);
+                        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.0001), $white);
                         bottom: -2px;
                         display: block;
                         height: 15px;
