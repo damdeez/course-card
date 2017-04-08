@@ -1,50 +1,59 @@
 import React from 'react';
 import styles from '../styles/main.scss';
-import {MdAddBox, MdArrowDropDown, MdArrowDropUp, MdCreate, MdNoteAdd, MdAnnouncement, MdModeComment, MdFolder} from 'react-icons/lib/md';
+import {
+    MdAddBox,
+    MdArrowDropDown,
+    MdArrowDropUp,
+    MdCreate,
+    MdNoteAdd,
+    MdAnnouncement,
+    MdModeComment,
+    MdFolder
+} from 'react-icons/lib/md';
+import Spinner from './svgSpinner';
 
 export default class Card extends React.Component {
     constructor(props) {
         super(props);
     }
     renderClasses(props) {
-        if (this.props.data.classes) {
-            const classData = this.props.data.classes;
-            const classMarkup = [];
-            const path = '//demo.damirhara.com/courses/images/';
+        const classData = this.props.data.classes;
+        const classMarkup = [];
 
-            classData.map((data, index) => {
-                classMarkup.push(
-                    <li key={index} className="card">
-                        <header className="class-heading">
-                            <span className="svg"><MdCreate /></span>
-                            <img src={`${path}uofu-${index}.jpg`} alt="Class Image"/>
-                        </header>
-                        <div className="inner-card">
-                            <h2 className="class-title">{data.name}</h2>
-                            <h3 className="class-number">{data.code}</h3>
-                            <div className="card-description" onClick={(e) => this.expandCardDescription(e, index)}>
-                                {data.description}
-                                <span className="description-overlay" />
-                            </div>
-                            <span className="arrow-down svg" onClick={(e) => this.expandCardDescription(e, index)}><MdArrowDropDown /></span>
-                            <span className="arrow-up svg" onClick={(e) => this.expandCardDescription(e, index)}><MdArrowDropUp /></span>
-                            <nav className="card-nav">
-                                <ul>
-                                    <li className="svg"><MdNoteAdd /></li>
-                                    <li className="svg"><MdAnnouncement /></li>
-                                    <li className="svg"><MdModeComment /></li>
-                                    <li className="svg"><MdFolder /></li>
-                                </ul>
-                            </nav>
+        classData.map((data, index) => {
+            classMarkup.push(
+                <li key={index} className="card">
+                    <header className="class-heading">
+                        <span className="svg"><MdCreate/></span>
+                        <img src={require(`../images/uofu-${index}.jpg`)} alt="Class Image"/>
+                    </header>
+                    <div className="inner-card">
+                        <h2 className="class-title">{data.name}</h2>
+                        <h3 className="class-number">{data.code}</h3>
+                        <div className="card-description" onClick={(e) => this.expandCardDescription(e, index)}>
+                            {data.description}
+                            <span className="description-overlay"/>
                         </div>
-                    </li>
-                );
-            });
+                        <span className="arrow-down svg" onClick={(e) => this.expandCardDescription(e, index)}>
+                            <MdArrowDropDown/>
+                        </span>
+                        <span className="arrow-up svg" onClick={(e) => this.expandCardDescription(e, index)}>
+                            <MdArrowDropUp/>
+                        </span>
+                        <nav className="card-nav">
+                            <ul>
+                                <li className="svg"><MdNoteAdd/></li>
+                                <li className="svg"><MdAnnouncement/></li>
+                                <li className="svg"><MdModeComment/></li>
+                                <li className="svg"><MdFolder/></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </li>
+            );
+        });
 
-            return classMarkup;
-        } else {
-            <div className="loading">...Loading</div>
-        }
+        return classMarkup;
     }
     expandCardDescription(e, index) {
         const $cardDescription = document.querySelectorAll('.card-description')[index];
@@ -80,7 +89,11 @@ export default class Card extends React.Component {
     }
     render(props) {
         return (
-            <div className="card-container">{this.renderClasses()}</div>
+            <div className="card-container">
+                {this.props.data.classes
+                    ? this.renderClasses()
+                    : <div className="loading"><Spinner /></div>}
+            </div>
         )
     }
 }

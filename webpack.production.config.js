@@ -34,7 +34,7 @@ module.exports = {
                 include: path.join(__dirname, 'src/styles')
             }, {
                 test: /\.(png|jpg|gif|svg)$/,
-                loaders: ['url?limit=8192'],
+                loaders: ['file?name=courses/images/img-[hash:6].[ext]'],
                 include: path.join(__dirname, 'src/images')
             }
         ]
