@@ -1,5 +1,5 @@
 import React from 'react';
-import Courses from './components/Courses';
+import Courses from './Courses';
 import axios from 'axios';
 
 export default class App extends React.Component {
@@ -12,8 +12,7 @@ export default class App extends React.Component {
     componentDidMount(props) {
         const accessToken = '9be624b4d5206a178fc56921d5bf2c2a';
         const numberOfCourses = '8';
-        axios.get(`http://canvas-api.herokuapp.com/api/v1/courses?access_token=${accessToken}&per_page=${numberOfCourses}`)
-          .then((response) => {
+        axios.get(`http://canvas-api.herokuapp.com/api/v1/courses?access_token=${accessToken}&per_page=${numberOfCourses}`).then((response) => {
             const jsonData = response.data;
             const coursesArray = []
 
@@ -21,13 +20,10 @@ export default class App extends React.Component {
                 coursesArray.push(courses);
             });
 
-            this.setState({
-                classes: coursesArray
-            });
-          })
-          .catch((error) => {
+            this.setState({classes: coursesArray});
+        }).catch((error) => {
             console.log(error);
-          });
+        });
     }
     render(props) {
         return (
