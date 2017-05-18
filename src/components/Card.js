@@ -13,9 +13,6 @@ import {
 import Spinner from './svgSpinner';
 
 export default class Card extends React.Component {
-    constructor(props) {
-        super(props);
-    }
     renderClasses(props) {
         const classData = this.props.data.classes;
         const classMarkup = [];
